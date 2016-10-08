@@ -67,9 +67,12 @@ class KangarooTest extends \PHPUnit_Framework_TestCase
         $response->shouldReceive('getHeader')
             ->times(1)
             ->andReturn('application/json');
+
         $response->shouldReceive('getBody')
             ->times(1)
             ->andReturn('{"access_token":"mock_access_token","token_type":"bearer","expires_in":3600}');
+
+        $response->shouldReceive('getStatusCode')->andReturn(200);
 
         $client = m::mock('GuzzleHttp\ClientInterface');
         $client->shouldReceive('send')->times(1)->andReturn($response);
