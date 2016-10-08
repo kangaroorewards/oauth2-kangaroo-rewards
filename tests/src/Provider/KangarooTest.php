@@ -83,7 +83,7 @@ class KangarooTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('mock_access_token', $token->getToken());
         $this->assertLessThanOrEqual(time() + 3600, $token->getExpires());
         $this->assertGreaterThanOrEqual(time(), $token->getExpires());
-        $this->assertInt($token->getResourceOwnerId());
+        $this->assertInternalType('int', $token->getResourceOwnerId());
     }
 
     /**
