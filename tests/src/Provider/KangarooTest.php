@@ -3,16 +3,7 @@
 namespace KangarooRewards\OAuth2\Client\Test\Provider;
 
 use KangarooRewards\OAuth2\Client\Provider\Kangaroo;
-use League\OAuth2\Client\Token\AccessToken;
 use Mockery as m;
-
-class FooKangarooProvider extends Kangaroo
-{
-    protected function fetchResourceOwnerDetails(AccessToken $token)
-    {
-        return null;
-    }
-}
 
 class KangarooTest extends \PHPUnit_Framework_TestCase
 {
@@ -83,7 +74,6 @@ class KangarooTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('mock_access_token', $token->getToken());
         $this->assertLessThanOrEqual(time() + 3600, $token->getExpires());
         $this->assertGreaterThanOrEqual(time(), $token->getExpires());
-        $this->assertInternalType('int', $token->getResourceOwnerId());
     }
 
     /**
@@ -97,5 +87,42 @@ class KangarooTest extends \PHPUnit_Framework_TestCase
     public function testScopes()
     {
         $this->assertEquals(['manage-all'], $this->provider->getDefaultScopes());
+    }
+
+    public function testResourceOwner()
+    {
+        $email = 'ttuser125@kangarewards.com';
+        $userId = rand(1000, 9999);
+
+        $response = m::mock('Psr\Http\Message\ResponseInterface');
+        $response->shouldReceive('getHeader')
+            ->times(1)
+            ->andReturn('application/json');
+
+        $response->shouldReceive('getBody')
+            ->times(1)
+            ->andReturn('{"access_token":"mock_access_token","token_type":"bearer","expires_in":3600}');
+
+        $response->shouldReceive('getStatusCode')->andReturn(200);
+
+        $userResponse = m::mock('Psr\Http\Message\ResponseInterface');
+        $userResponse->shouldReceive('getBody')->andReturn('{"data":{"id":' . $userId . ',"profile":{"user_id":223,"username":"ttuser125","email":"ttuser125@kangarewards.com","name":"Ali El Zein"},"business":{"id":95,"name":"Muscle Depot"}}}');
+        $userResponse->shouldReceive('getHeader')->andReturn(['content-type' => 'json']);
+        $userResponse->shouldReceive('getStatusCode')->andReturn(200);
+
+        $client = m::mock('GuzzleHttp\ClientInterface');
+        $client->shouldReceive('send')
+            ->times(2)
+            ->andReturn($response, $userResponse);
+
+        $this->provider->setHttpClient($client);
+
+        $token = $this->provider->getAccessToken('authorization_code', ['code' => 'mock_authorization_code']);
+
+        $resourceOwner = $this->provider->getResourceOwner($token);
+
+        $this->assertInstanceOf('KangarooRewards\OAuth2\Client\Provider\KangarooResourceOwner', $resourceOwner);
+        $this->assertEquals($userId, $resourceOwner->getId());
+        $this->assertEquals($email, $resourceOwner->getEmail());
     }
 }
