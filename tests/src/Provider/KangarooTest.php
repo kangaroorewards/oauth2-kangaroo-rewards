@@ -80,7 +80,7 @@ class KangarooTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('mock_access_token', $token->getToken());
         $this->assertLessThanOrEqual(time() + 3600, $token->getExpires());
         $this->assertGreaterThanOrEqual(time(), $token->getExpires());
-        $this->assertNull($token->getResourceOwnerId(), 'Kangaroo does not return user ID with access token. Expected null.');
+        $this->assertInt($token->getResourceOwnerId());
     }
 
     /**
@@ -93,6 +93,6 @@ class KangarooTest extends \PHPUnit_Framework_TestCase
 
     public function testScopes()
     {
-        $this->assertEquals([], $this->provider->getDefaultScopes());
+        $this->assertEquals(['manage-all'], $this->provider->getDefaultScopes());
     }
 }
