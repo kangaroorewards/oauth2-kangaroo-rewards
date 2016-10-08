@@ -70,6 +70,19 @@ class Kangaroo extends AbstractProvider
     }
 
     /**
+     * Get the default scopes used by this provider.
+     *
+     * This should not be a complete list of all scopes, but the minimum
+     * required for the provider user interface!
+     *
+     * @return array
+     */
+    public function getDefaultScopes()
+    {
+        return $this->defaultScopes;
+    }
+    
+    /**
      * Generate a Resource Owner object from a successful Resource Owner details request.
      *
      * @param array $response
@@ -148,19 +161,6 @@ class Kangaroo extends AbstractProvider
     protected function getBusinessId()
     {
         return (int) $this->businessId;
-    }
-
-    /**
-     * Get the default scopes used by this provider.
-     *
-     * This should not be a complete list of all scopes, but the minimum
-     * required for the provider user interface!
-     *
-     * @return array
-     */
-    protected function getDefaultScopes()
-    {
-        return $this->defaultScopes;
     }
 
     /**
