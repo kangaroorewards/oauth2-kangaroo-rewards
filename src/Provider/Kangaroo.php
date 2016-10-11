@@ -18,11 +18,6 @@ class Kangaroo extends AbstractProvider
     const ACCESS_TOKEN_URI = 'http://api.kangaroorewards.local/oauth/token';
 
     /**
-     * @var mixed
-     */
-    protected $businessId;
-
-    /**
      * Default scopes
      *
      * @var array
@@ -38,13 +33,6 @@ class Kangaroo extends AbstractProvider
     public function __construct($options = [], array $collaborators = [])
     {
         parent::__construct($options, $collaborators);
-
-        if (empty($options['businessId'])) {
-            $message = 'The "businessId" option not set. Please set Business ID.';
-            throw new \InvalidArgumentException($message);
-        }
-
-        $this->businessId = (int) $options['businessId'];
     }
 
     public function getBaseAuthorizationUrl()
@@ -104,7 +92,6 @@ class Kangaroo extends AbstractProvider
         return [
             'urlAuthorize',
             'urlAccessToken',
-            'businessId',
         ];
     }
 
@@ -141,26 +128,6 @@ class Kangaroo extends AbstractProvider
     protected function getBaseApiUrl()
     {
         return self::API_URI;
-    }
-
-    /**
-     * Set the business Id
-     *
-     * @param int $businessId
-     */
-    protected function setBusinessId($businessId)
-    {
-        $this->businessId = $businessId;
-    }
-
-    /**
-     * Get the business ID
-     *
-     * @return int
-     */
-    protected function getBusinessId()
-    {
-        return (int) $this->businessId;
     }
 
     /**
