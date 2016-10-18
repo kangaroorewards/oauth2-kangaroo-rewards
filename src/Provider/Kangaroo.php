@@ -13,16 +13,27 @@ class Kangaroo extends AbstractProvider
 {
     use BearerAuthorizationTrait;
 
-    const AUTHORIZATION_URI = 'http://api.kangaroorewards.local/oauth/authorize';
-    const API_URI = 'http://api.kangaroorewards.local';
-    const ACCESS_TOKEN_URI = 'http://api.kangaroorewards.local/oauth/token';
+    /**
+     * @var string
+     */
+    protected $urlAuthorize = 'https://api.kangaroorewards.com/oauth/authorize';
+
+    /**
+     * @var string
+     */
+    protected $urlAccessToken = 'https://api.kangaroorewards.com/oauth/token';
+
+    /**
+     * @var string
+     */
+    protected $urlResourceOwnerDetails = 'https://api.kangaroorewards.com/me';
 
     /**
      * Default scopes
      *
      * @var array
      */
-    public $defaultScopes = ['manage-all'];
+    public $defaultScopes = ['full-access'];
 
     /**
      * @param array $options
@@ -37,7 +48,7 @@ class Kangaroo extends AbstractProvider
 
     public function getBaseAuthorizationUrl()
     {
-        return static::AUTHORIZATION_URI;
+        return $this->urlAuthorize;
     }
 
     /**
@@ -45,7 +56,7 @@ class Kangaroo extends AbstractProvider
      */
     public function getBaseAccessTokenUrl(array $params)
     {
-        return self::ACCESS_TOKEN_URI;
+        return $this->urlAccessToken;
     }
 
     /**
@@ -54,7 +65,7 @@ class Kangaroo extends AbstractProvider
      */
     public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
-        return $this->getBaseApiUrl() . '/me';
+        return $this->urlResourceOwnerDetails;
     }
 
     /**
@@ -92,6 +103,7 @@ class Kangaroo extends AbstractProvider
         return [
             'urlAuthorize',
             'urlAccessToken',
+            'urlResourceOwnerDetails',
         ];
     }
 
@@ -118,16 +130,6 @@ class Kangaroo extends AbstractProvider
         //     $message = isset($data['message']) ? $data['message'] : '';
         //     throw new \Exception($message);
         // }
-    }
-
-    /**
-     * Get the Kangaroo api URL.
-     *
-     * @return string
-     */
-    protected function getBaseApiUrl()
-    {
-        return self::API_URI;
     }
 
     /**

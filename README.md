@@ -1,7 +1,7 @@
 # Kangaroo Rewards Provider for OAuth 2.0 Client
 
-[![Build Status](https://travis-ci.org/ursuleacv/oauth2-kangaroo-rewards.png?branch=master)](https://travis-ci.org/ursuleacv/oauth2-kangaroo-rewards)
-[![Latest Version](https://img.shields.io/github/release/ursuleacv/oauth2-kangaroo-rewards.svg?style=flat-square)](https://github.com/ursuleacv/oauth2-kangaroo-rewards/releases)
+[![Build Status](https://travis-ci.org/KangarooRewards/oauth2-kangaroo-rewards.png?branch=master)](https://travis-ci.org/KangarooRewards/oauth2-kangaroo-rewards)
+[![Latest Version](https://img.shields.io/github/release/KangarooRewards/oauth2-kangaroo-rewards.svg?style=flat-square)](https://github.com/KangarooRewards/oauth2-kangaroo-rewards/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 
 This package provides Kangaroo Rewards OAuth 2.0 support for the PHP League's [OAuth 2.0 Client](https://github.com/thephpleague/oauth2-client).
@@ -30,7 +30,7 @@ Add the following to your `composer.json` file.
 ```json
 {
     "require": {
-        "ursuleacv/oauth2-kangaroo-rewards": "~1.0"
+        "KangarooRewards/oauth2-kangaroo-rewards": "~1.0"
     }
 }
 ```
@@ -111,7 +111,7 @@ $ ./vendor/bin/phpunit
 
 ## Contributing
 
-Please see [CONTRIBUTING](https://github.com/ursuleacv/oauth2-kangaroo-rewards/blob/master/CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/KangarooRewards/oauth2-kangaroo-rewards/blob/master/CONTRIBUTING.md) for details.
 
 
 ## Credits
@@ -120,4 +120,4 @@ Please see [CONTRIBUTING](https://github.com/ursuleacv/oauth2-kangaroo-rewards/b
 
 ## License
 
-The MIT License (MIT). Please see [License File](https://github.com/ursuleacv/oauth2-kangaroo-rewards/blob/master/LICENSE) for more information.
+The MIT License (MIT). Please see [License File](https://github.com/KangarooRewards/oauth2-kangaroo-rewards/blob/master/LICENSE) for more information.
