@@ -40,7 +40,8 @@ class KangarooResourceOwner implements ResourceOwnerInterface
      */
     public function getName()
     {
-        return $this->response['data']['profile']['name'] ?: null;
+        $profile = $this->response['data']['profile'] ?: null;
+        return $profile ? $profile['first_name'] . ' ' . $profile['last_name'] : null;
     }
 
     /**

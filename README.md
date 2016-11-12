@@ -30,7 +30,7 @@ Add the following to your `composer.json` file.
 ```json
 {
     "require": {
-        "KangarooRewards/oauth2-kangaroo-rewards": "~1.0"
+        "kangaroorewards/oauth2-kangaroo-rewards": "~1.0"
     }
 }
 ```
