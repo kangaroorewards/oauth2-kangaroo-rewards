@@ -1,5 +1,5 @@
 {
-    "name": "KangarooRewards/oauth2-kangaroo-rewards",
+    "name": "kangaroorewards/oauth2-kangaroo-rewards",
     "description": "Kangaroo Rewards OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
     "license": "MIT",
     "authors": [
