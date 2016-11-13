@@ -32,12 +32,12 @@
     },
     "autoload": {
         "psr-4": {
-            "KangarooRewards\\OAuth2\\Client\\": "src/"
+            "kangaroorewards\\OAuth2\\Client\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "KangarooRewards\\OAuth2\\Client\\Test\\": "tests/src/"
+            "kangaroorewards\\OAuth2\\Client\\Test\\": "tests/src/"
         }
     },
     "extra": {
