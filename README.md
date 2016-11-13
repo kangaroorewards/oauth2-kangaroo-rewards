@@ -1,7 +1,7 @@
 # Kangaroo Rewards Provider for OAuth 2.0 Client
 
-[![Build Status](https://travis-ci.org/KangarooRewards/oauth2-kangaroo-rewards.png?branch=master)](https://travis-ci.org/KangarooRewards/oauth2-kangaroo-rewards)
-[![Latest Version](https://img.shields.io/github/release/KangarooRewards/oauth2-kangaroo-rewards.svg?style=flat-square)](https://github.com/KangarooRewards/oauth2-kangaroo-rewards/releases)
+[![Build Status](https://travis-ci.org/kangaroorewards/oauth2-kangaroo-rewards.png?branch=master)](https://travis-ci.org/kangaroorewards/oauth2-kangaroo-rewards)
+[![Latest Version](https://img.shields.io/github/release/kangaroorewards/oauth2-kangaroo-rewards.svg?style=flat-square)](https://github.com/kangaroorewards/oauth2-kangaroo-rewards/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 
 This package provides Kangaroo Rewards OAuth 2.0 support for the PHP League's [OAuth 2.0 Client](https://github.com/thephpleague/oauth2-client).
