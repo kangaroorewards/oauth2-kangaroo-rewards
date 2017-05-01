@@ -86,7 +86,7 @@ class KangarooTest extends \PHPUnit_Framework_TestCase
 
     public function testScopes()
     {
-        $this->assertEquals(['all'], $this->provider->getDefaultScopes());
+        $this->assertEquals(['admin'], $this->provider->getDefaultScopes());
     }
 
     public function testResourceOwner()
