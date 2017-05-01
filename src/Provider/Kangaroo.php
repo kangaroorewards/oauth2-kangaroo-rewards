@@ -33,7 +33,7 @@ class Kangaroo extends AbstractProvider
      *
      * @var array
      */
-    public $defaultScopes = ['all'];
+    public $defaultScopes = ['admin'];
 
     /**
      * @param array $options
