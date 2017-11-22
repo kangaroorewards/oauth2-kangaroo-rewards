@@ -2,9 +2,9 @@
 
 namespace KangarooRewards\OAuth2\Client\Provider;
 
+use KangarooRewards\OAuth2\Client\Provider\KangarooResourceOwner;
 use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
-use KangarooRewards\OAuth2\Client\Provider\KangarooResourceOwner;
 use League\OAuth2\Client\Token\AccessToken;
 use League\OAuth2\Client\Tool\BearerAuthorizationTrait;
 use Psr\Http\Message\ResponseInterface;
@@ -80,7 +80,7 @@ class Kangaroo extends AbstractProvider
     {
         return $this->defaultScopes;
     }
-    
+
     /**
      * Generate a Resource Owner object from a successful Resource Owner details request.
      *
@@ -119,17 +119,23 @@ class Kangaroo extends AbstractProvider
     {
         $acceptableStatuses = [200, 201];
         if (!in_array($response->getStatusCode(), $acceptableStatuses)) {
+
+            if (isset($data['error']['description'])) {
+                $message = $data['error']['description'];
+            } elseif (isset($data['error']['message'])) {
+                $message = $data['error']['message'];
+            } elseif (isset($data['message'])) {
+                $message = $data['message'];
+            } else {
+                $message = $response->getReasonPhrase();
+            }
+
             throw new IdentityProviderException(
-                $data['message'] ?: $response->getReasonPhrase(),
+                $message,
                 $response->getStatusCode(),
                 $response
             );
         }
-        // if (!empty($data['error'])) {
-        //     $message = $data['error'];
-        //     $message = isset($data['message']) ? $data['message'] : '';
-        //     throw new \Exception($message);
-        // }
     }
 
     /**

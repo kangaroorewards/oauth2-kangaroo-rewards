@@ -21,9 +21,9 @@
         "loyalty"
     ],
     "require": {
-        "php": ">=5.5.0",
+        "php": ">=5.6.0",
         "ext-curl": "*",
-        "league/oauth2-client": "~1.0"
+        "league/oauth2-client": "~1.4"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0",
