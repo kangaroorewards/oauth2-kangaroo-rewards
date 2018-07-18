@@ -3,6 +3,7 @@
 namespace KangarooRewards\OAuth2\Client\Provider;
 
 use KangarooRewards\OAuth2\Client\Provider\KangarooResourceOwner;
+use KangarooRewards\OAuth2\Client\Grant\CustomGrantFactory;
 use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use League\OAuth2\Client\Token\AccessToken;
@@ -43,6 +44,7 @@ class Kangaroo extends AbstractProvider
      */
     public function __construct($options = [], array $collaborators = [])
     {
+        $collaborators['grantFactory'] = new CustomGrantFactory;
         parent::__construct($options, $collaborators);
     }
 
