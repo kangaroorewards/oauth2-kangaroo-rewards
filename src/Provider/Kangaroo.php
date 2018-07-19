@@ -122,7 +122,6 @@ class Kangaroo extends AbstractProvider
         $acceptableStatuses = [200, 201];
 
         if (!in_array($response->getStatusCode(), $acceptableStatuses)) {
-
             if (isset($data['error']['description'])) {
                 $message = $data['error']['description'];
             } elseif (isset($data['error']['message'])) {
