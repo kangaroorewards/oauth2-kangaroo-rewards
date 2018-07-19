@@ -2,8 +2,8 @@
 
 namespace KangarooRewards\OAuth2\Client\Provider;
 
-use KangarooRewards\OAuth2\Client\Provider\KangarooResourceOwner;
 use KangarooRewards\OAuth2\Client\Grant\CustomGrantFactory;
+use KangarooRewards\OAuth2\Client\Provider\KangarooResourceOwner;
 use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use League\OAuth2\Client\Token\AccessToken;
@@ -120,6 +120,7 @@ class Kangaroo extends AbstractProvider
     protected function checkResponse(ResponseInterface $response, $data)
     {
         $acceptableStatuses = [200, 201];
+
         if (!in_array($response->getStatusCode(), $acceptableStatuses)) {
 
             if (isset($data['error']['description'])) {
