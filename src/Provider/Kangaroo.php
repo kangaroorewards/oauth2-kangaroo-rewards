@@ -44,7 +44,7 @@ class Kangaroo extends AbstractProvider
      */
     public function __construct($options = [], array $collaborators = [])
     {
-        $collaborators['grantFactory'] = new CustomGrantFactory;
+        $collaborators['grantFactory'] = new CustomGrantFactory();
         parent::__construct($options, $collaborators);
     }
 

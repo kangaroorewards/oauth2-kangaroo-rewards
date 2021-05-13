@@ -112,6 +112,12 @@ echo '</pre>';
 $ ./vendor/bin/phpunit
 ```
 
+Style checks can be run with:
+```bash
+./vendor/bin/phpcbf src --standard=psr12 -p
+./vendor/bin/phpcs src --standard=psr12 -sp
+```
+
 ## Contributing
 
 Please see [CONTRIBUTING](https://github.com/KangarooRewards/oauth2-kangaroo-rewards/blob/master/CONTRIBUTING.md) for details.
