@@ -18,10 +18,13 @@ This package is compliant with [PSR-1][], [PSR-2][], [PSR-4][], and [PSR-7][]. I
 
 The following versions of PHP are supported.
 
-* PHP 5.5
 * PHP 5.6
-* PHP 7.0
-* HHVM
+* PHP 7.1
+* PHP 7.2
+* PHP 7.3
+* PHP 7.4
+* PHP 8.0
+
 
 ## Installation
 
@@ -30,7 +33,7 @@ Add the following to your `composer.json` file.
 ```json
 {
     "require": {
-        "kangaroorewards/oauth2-kangaroo-rewards": "~1.0"
+        "kangaroorewards/oauth2-kangaroo-rewards": "~2.0"
     }
 }
 ```

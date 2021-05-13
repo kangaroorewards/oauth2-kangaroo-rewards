@@ -3,9 +3,10 @@
 namespace KangarooRewards\OAuth2\Client\Test\Provider;
 
 use KangarooRewards\OAuth2\Client\Provider\Kangaroo;
+use PHPUnit\Framework\TestCase;
 use Mockery as m;
 
-class KangarooTest extends \PHPUnit_Framework_TestCase
+class KangarooTest extends TestCase
 {
 
     /**
