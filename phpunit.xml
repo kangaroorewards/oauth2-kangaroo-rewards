@@ -10,9 +10,15 @@
          stopOnFailure="false"
          syntaxCheck="false"
 >
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src/</directory>
+        </whitelist>
+    </filter>
+
     <coverage>
         <include>
-        <directory suffix=".php">src/</directory>
+        <directory suffix=".php">./src/</directory>
         </include>
         <report>
         <clover outputFile="coverage.xml"/>
