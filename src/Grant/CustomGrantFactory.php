@@ -36,6 +36,8 @@ class CustomGrantFactory extends GrantFactory
 
         if ($name == 'facebook') {
             $class = 'KangarooRewards\\OAuth2\\Client\\Grant\\' . $class;
+        } elseif ($name == 'google') {
+            $class = 'KangarooRewards\\OAuth2\\Client\\Grant\\' . $class;
         } else {
             $class = 'League\\OAuth2\\Client\\Grant\\' . $class;
         }
