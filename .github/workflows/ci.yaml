@@ -7,7 +7,7 @@ on:
 
 jobs:
     run:
-        runs-on: ubuntu-18.04
+        runs-on: ubuntu-20.04
         strategy:
             fail-fast: false
             matrix:
@@ -17,6 +17,8 @@ jobs:
                     - '7.2'
                     - '7.3'
                     - '7.4'
+                    - '8.0'
+                    - '8.1'
                 minimum_versions: [false]
                 coverage: ['none']
                 include:
